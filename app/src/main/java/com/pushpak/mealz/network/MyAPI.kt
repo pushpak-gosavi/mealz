@@ -14,7 +14,7 @@ class MealWebService {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val service = retrofit.create(myAPI::class.java)
+        myAPI = retrofit.create(MyAPI::class.java)
 
     }
 
