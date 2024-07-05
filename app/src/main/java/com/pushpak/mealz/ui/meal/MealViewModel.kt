@@ -5,9 +5,7 @@ import com.pushpak.mealz.model.MealsCategory
 import com.pushpak.mealz.model.MealsCategoryResponse
 
 class MealViewModel(private val mealRepository: MealRepository = MealRepository()) : ViewModel() {
-    fun getMeals(sucessCallback: (response: MealsCategoryResponse?) -> Unit) {
-        mealRepository.getMeals { response ->
-            sucessCallback(response)
-        }
+   suspend fun getMeals() : List<MealsCategory> {
+       return mealRepository.getMeals().categories
     }
 }

@@ -18,12 +18,12 @@ class MealWebService {
 
     }
 
-    fun getMeals() : Call<MealsCategoryResponse>{
+   suspend fun getMeals() : MealsCategoryResponse{
         return myAPI.mealzcategory()
     }
 }
 public interface MyAPI {
     @GET("categories.php")
-    fun mealzcategory() : Call<MealsCategoryResponse>
+    suspend fun mealzcategory() : MealsCategoryResponse
 
 }
