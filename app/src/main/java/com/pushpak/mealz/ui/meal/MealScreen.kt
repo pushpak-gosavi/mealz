@@ -19,18 +19,10 @@ import kotlinx.coroutines.launch
 @Composable
 fun MealScreen() {
     val mealViewModel: MealViewModel = viewModel()
-    var response by remember {
-        mutableStateOf(emptyList<MealsCategory>())
-    }
-    val remberScope = rememberCoroutineScope()
+    val meals = mealViewModel.meals
 
-    LaunchedEffect(key1 = "GET_Meal"){
-        remberScope.launch(Dispatchers.IO){
-            response = mealViewModel.getMeals()
-        }
-    }
     LazyColumn(content = {
-        items(response) {
+        items(meals) {
             Text(text = it.name)
         }
     })
